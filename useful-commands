@@ -1,0 +1,2 @@
+Debug logs (for VM startups):
+dmesg -w
