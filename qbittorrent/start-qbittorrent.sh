@@ -11,4 +11,5 @@ docker run -d \
   -v ~/qbittorrent/appdata:/config \
   -v ~/torrent:/downloads \
   --restart unless-stopped \
+  --net=host \
   lscr.io/linuxserver/qbittorrent:latest
