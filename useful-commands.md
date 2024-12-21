@@ -1,5 +1,7 @@
 ### Debug logs (for VM startups):
+```
 dmesg -w
+```
 
 ### Setup passthrough with Intel integrated graphics in split mode:
 https://3os.org/infrastructure/proxmox/gpu-passthrough/igpu-passthrough-to-vm/#proxmox-configuration-for-igpu-full-passthrough
