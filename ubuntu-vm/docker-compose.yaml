@@ -1,0 +1,36 @@
+---
+services:
+
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    user: uid:gid
+    network_mode: 'host'
+    volumes:
+      - ~/jellyfin/config:/config
+      - ~/jellyfin/cache:/cache
+      - type: bind
+        source: /media/downloads/jellyfin
+        target: /media
+    restart: 'unless-stopped'
+    # Optional - alternative address used for autodiscovery
+    environment:
+      - JELLYFIN_PublishedServerUrl=http://jellyfin.berko.family
+
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - WEBUI_PORT=8080
+      - TORRENTING_PORT=6881
+    volumes:
+      - ~/qbittorrent/appdata:/config
+      - /media/downloads:/downloads
+    ports:
+      - 8080:8080
+      - 6881:6881
+      - 6881:6881/udp
+    restart: unless-stopped
