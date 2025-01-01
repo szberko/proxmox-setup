@@ -21,6 +21,21 @@ services:
       - /dev/dri/renderD128:/dev/dri/renderD128
     restart: unless-stopped
 
+  plex:
+    image: lscr.io/linuxserver/plex:latest
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - VERSION=docker
+      # - PLEX_CLAIM= #optional
+    volumes:
+      - ~/plex/library:/config
+      - /media/downloads/jellyfin:/movies
+    restart: unless-stopped
+
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:4.6.7
     container_name: qbittorrent
