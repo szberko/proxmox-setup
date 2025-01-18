@@ -1,16 +1,15 @@
 ---
 services:
   jellyfin:
-    image: lscr.io/linuxserver/jellyfin:latest
+    image: jellyfin/jellyfin:latest
     container_name: jellyfin
     group_add:
-      - "110"
+     - '993' # group_id of /dev/dri/renderD128
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - ~/jellyfin-linuxserver/config:/config
+      - ~/jellyfin/config:/config
+      - ~/jellyfin/cache:/cache
       - /media/downloads/jellyfin:/data/movies
     ports:
       - 8096:8096
