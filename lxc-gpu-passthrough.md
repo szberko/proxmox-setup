@@ -4,7 +4,7 @@
 
 ## Useful links:
 - https://kcore.org/2022/02/05/lxc-subuid-subgid/
-- https://www.youtube.com/watch?v=0ZDr5h52OOE
+- https://www.youtube.com/watch?v=0ZDr5h52OOE (*THIS SHOULD BE FOLLOWED*)
 - https://xahteiwi.eu/resources/hints-and-kinks/lxc-basics/
 - https://www.saninnsalas.com/pass-intel-igpu-to-an-unprivileged-lxc-container-proxmox/
 
@@ -17,4 +17,10 @@ ls -l /dev/dri # check is the graphic card is available and the drivers are inst
 lspci -nnv | grep VGA # list out your VGA(s)
 ```
 
-TODO: Continue me....
+Mandatory things:
+- edit the `/etc/subgid` file
+- add root to `render` and `video` group
+- edit the `/etc/pve/lxc/<lxc-id>.conf` file
+  - map the gids
+  - map the uid (only root)
+- 
