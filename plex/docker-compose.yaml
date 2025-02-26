@@ -1,24 +1,15 @@
-version: '2'
+---
 services:
   plex:
+    image: lscr.io/linuxserver/plex:latest
     container_name: plex
-    image: plexinc/pms-docker
-    restart: unless-stopped
-    ports:
-      - 32400:32400/tcp
-      - 8324:8324/tcp
-      - 32469:32469/tcp
-      # - 1900:1900/udp
-      - 32410:32410/udp
-      - 32412:32412/udp
-      - 32413:32413/udp
-      - 32414:32414/udp
+    network_mode: host
     environment:
-      - TZ=HU
-      # - PLEX_CLAIM=<claimToken>
-      # - ADVERTISE_IP=http://<hostIPAddress>:32400/
-    hostname: plex-server  
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - VERSION=docker
     volumes:
       - ~/plex/config:/config
-      - ~/plex/transcode:/transcode
       - /media/downloads/jellyfin:/data
+    restart: unless-stopped
