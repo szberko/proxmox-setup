@@ -9,8 +9,8 @@ services:
       - TZ=Etc/UTC
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
-      - /media/downloads/jellyfin:/data
+      - /media/downloads/jellyfin:/media/data
     ports:
-      - 80:80
+      - 8081:80
       - 443:443
     restart: unless-stopped
