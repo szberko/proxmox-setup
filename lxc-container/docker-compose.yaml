@@ -10,7 +10,7 @@ services:
     volumes:
       - ~/jellyfin/config:/config
       - ~/jellyfin/cache:/cache
-      - /media/downloads/jellyfin:/data/movies
+      - /mnt/nas/downloads/media:/data/media
     ports:
       - 8096:8096
       - 8920:8920 #optional
@@ -31,7 +31,7 @@ services:
       - TORRENTING_PORT=6881
     volumes:
       - ~/qbittorrent/appdata:/config
-      - /media/downloads:/downloads
+      - /mnt/nas/downloads:/downloads
     ports:
       - 8080:8080
       - 6881:6881
