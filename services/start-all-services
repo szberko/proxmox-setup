@@ -1,0 +1,15 @@
+#!/bin/bash
+
+start_script="start"
+
+# Iterate over all directories in the current directory
+for dir in */; do
+  # Check if the directory contains a shell script
+  if [ -f "$dir/$start_script" ]; then
+    echo "Executing script in $dir"
+    # Execute the shell script
+    bash "$dir/$start_script"
+  else
+    echo "No script found in $dir"
+  fi
+done
