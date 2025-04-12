@@ -1,0 +1,6 @@
+---
+include:
+  - homer/docker-compose.yaml
+  #- immich/docker-compose.yaml
+  - jellyfin/docker-compose.yaml
+  - qbittorrent/docker-compose.yaml
