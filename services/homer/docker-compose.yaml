@@ -1,6 +1,6 @@
 ---
 services:
-    homer:
+  homer:
     image: b4bz/homer
     container_name: homer
     volumes:
