@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Find all docker-compose.yaml files
+compose_files=$(find . -name "docker-compose.yaml")
+
+# Loop through each file and execute docker compose up
+for file in $compose_files; do
+  echo "Starting docker compose up for $file"
+  docker compose -f "$file" down
+done
