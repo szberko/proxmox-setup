@@ -1,7 +1,7 @@
 services:
   netbird-client:
       container_name: netbird-client
-      hostname: <HOSTNAME>
+      hostname: pve-lxc-media
       cap_add:
           - NET_ADMIN
           - SYS_ADMIN
