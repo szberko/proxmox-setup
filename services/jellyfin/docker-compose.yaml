@@ -11,6 +11,7 @@ services:
       - ~/jellyfin/config:/config
       - ~/jellyfin/cache:/cache
       - /mnt/nas/downloads/media:/data/media
+      - /mnt/nas/downloads/klrmester:/data/klrmester
     ports:
       - 8096:8096
       - 8920:8920 #optional
