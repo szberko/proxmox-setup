@@ -14,6 +14,7 @@ services:
       volumes:
           - netbird-client:/var/lib/netbird
       image: netbirdio/netbird:latest
+      restart: unless-stopped
 volumes:
   netbird-client:
       name: netbird-client
